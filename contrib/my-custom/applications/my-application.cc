@@ -36,6 +36,21 @@ MyApplication::GetTypeId()
 }
 
 void
+MyApplication::AdjustPacketSize(uint32_t packetHeaderSize)
+{
+    NS_LOG_FUNCTION(this);
+    NS_ASSERT_MSG(m_pktSize > packetHeaderSize, "Packet size must be greater than packet header size");
+    m_pktSize = m_pktSize - packetHeaderSize;
+}
+
+void
+MyApplication::AdjustSendingRate(uint32_t packetHeaderSize)
+{
+    NS_LOG_FUNCTION(this);
+    m_cbrRate = DataRate(m_cbrRate.GetBitRate() * m_pktSize / (m_pktSize + packetHeaderSize));
+}
+
+void
 MyApplication::SendPacket()
 {
     NS_LOG_FUNCTION(this);

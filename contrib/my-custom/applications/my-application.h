@@ -19,6 +19,15 @@ class MyApplication : public OnOffApplication
     MyApplication() = default;
     ~MyApplication() = default;
 
+    // Adjust the packet size based on the packet header size.
+    void AdjustPacketSize(uint32_t packetHeaderSize);
+
+    // Adjust the sending rate based on the packet header size.
+    // This is to ensure that the actual sending rate of the application is consistent with the
+    // bandwidth specified by the user, even when the packet header size changes.
+    void AdjustSendingRate(uint32_t packetHeaderSize);
+
+    // Override the SendPacket method to add the custom tag to the packet before sending it.
     void SendPacket() override;
 
   private:

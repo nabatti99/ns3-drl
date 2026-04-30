@@ -13,7 +13,7 @@ build_lib(
         tags/send-time-tag.cc
         tags/enqueue-time-tag.cc
         # helper/http-request.cc
-        # queues/bd-fairq2s-queue-disc.cc
+        queues/drl-queue-disc.cc
         applications/realtime-application.cc
         applications/non-realtime-application.cc
         applications/other-application.cc
@@ -25,7 +25,7 @@ build_lib(
         tags/enqueue-time-tag.h
         helper/my-mapping.h
         # helper/http-request.h
-        # queues/bd-fairq2s-queue-disc.h
+        queues/drl-queue-disc.h
         applications/realtime-application.h
         applications/non-realtime-application.h
         applications/other-application.h

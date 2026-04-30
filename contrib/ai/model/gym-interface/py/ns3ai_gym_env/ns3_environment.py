@@ -29,9 +29,9 @@ class Ns3Env(gym.Env):
             elif mtype == pb.UINT:
                 mtype = np.uint32
             elif mtype == pb.DOUBLE:
-                mtype = np.float32
+                mtype = np.float64
             else:
-                mtype = np.float32
+                mtype = np.float64
 
             space = spaces.Box(low=low, high=high, shape=shape, dtype=mtype)
 
